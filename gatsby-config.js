@@ -6,8 +6,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: "WebDev Portfolio",
-    description: "This is WebDev Portfolio Site",
+    title: "brianG Portfolio",
+    description: "This is bg Portfolio Site",
     author: "@webdev",
     twitterUsername: "@john_smilga",
     image: "/twitter-img.png",
@@ -28,7 +28,10 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: process.env.DEPLOY_URL
+          ? "https://strapi-gatsby-briangportfolio.herokuapp.com/"
+          : "http://localhost:1337",
+        //apiURL: `http://localhost:1337`,
         queryLimit: 1000, // Default to 100
         // contentTypes: [`jobs`, `projects`, `blogs`, ],
         //singleTypes:[`about` ]
